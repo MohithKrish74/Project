@@ -1,0 +1,59 @@
+POST http://localhost:5000/user/createuser
+Content-Type: application/json
+
+{
+    "username":"Ravi",
+    "password":"ravi",
+    "email":"ravi@mail.com",
+    "city":"Kerala",
+    "age":28
+}
+
+###
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+    "username":"Ravi",
+    "password":"ravi"
+}
+
+###
+POST http://localhost:5000/admin/createadmin
+Content-Type: application/json
+
+{
+    "username":"Raju",
+    "password":"raju"
+}
+
+###
+POST http://localhost:5000/admin/addmovies
+Content-Type: application/json
+
+{
+    "username":"Raju",
+    "movieList":[
+        {
+            "movieName":"The Conjuring",
+            "genre":"Horror",
+            "rating":"4.5 / 5",
+            "duration": "1h 30m",
+            "year":2013,
+            "description":"The Conjuring is a 2013 supernatural horror film inspired by the true-life story of the Perron family, who claimed they 'lived among the dead' in the 1970s as spirits both friendly and sinister inhabited their Rhode Island farmhouse."
+        }
+    ]
+}
+
+###
+GET http://localhost:5000/admin/getmovies
+
+
+###
+POST http://localhost:5000/admin/login
+Content-Type: application/json
+
+{
+    "username":"Raju",
+    "password":"raju"
+}

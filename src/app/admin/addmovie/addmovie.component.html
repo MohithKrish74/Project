@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 mx-auto">
+            <form [formGroup]="addmovieForm" (ngSubmit)="onSubmit()" class="bg-light shadow px-5 py-5">
+                <!-- movie name -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Name of Movie</label>
+                    <input type="text" name="" id="" class="form-control" formControlName="movieName">
+                </div>
+                <!-- genre -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Genre of Movie</label>
+                    <input type="text" name="" id="" class="form-control" formControlName="movieGenre">
+                </div>
+                <!-- rating -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Rating of Movie</label>
+                    <input type="text" name="" id="" class="form-control" formControlName="movieRating">
+                </div>
+                <!-- duration -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Duration of Movie</label>
+                    <input type="text" name="" id="" class="form-control" formControlName="movieDuration">
+                </div>
+                <!-- year -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Year of Movie Release</label>
+                    <input type="number" name="" id="" class="form-control" formControlName="movieYear">
+                </div>
+                <!-- image -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Upload Movie Image</label>
+                    <input type="file" name="photo" id="" class="form-control" (input)="uploadImage(file.files[0])" #file>
+                </div>
+                <!-- description -->
+                <div class="form-group mt-3">
+                   <label for="" class="form-label">Description of Movie</label>
+                   <textarea name="" id="" cols="5" rows="5" class="form-control" formControlName="movieDescription"></textarea>
+                </div>
+                <!-- button -->
+                <button class="btn btn-success d-block mt-3 mx-auto" type="submit">Add Movie</button>
+            </form>
+        </div>
+    </div>
+    
+</div>

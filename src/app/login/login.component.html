@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-2">Login User</h2>
+    <div class="row mt-3">
+        <div class="col-12 col-sm-8 col-md-6 mx-auto">
+            <form class="shadow px-5 py-5" [formGroup]="userTypeForm" (ngSubmit)="onSubmit()">
+                <!-- user type -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label d-block"><i class="fa-solid fa-user-group"></i> User Type</label>
+                    <div class="form-check form-check-inline" *ngFor="let user of userType">
+                        <input type="radio" name="typeOfUser" [id]="user" [value]="user" class="form-check-input" (change)="userChoice($event)" formControlName="typeOfUser">
+                        <label [for]="user" class="form-label">{{user}}</label>
+                    </div>
+                </div>
+                <!-- username -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label"><i class="fa-solid fa-user"></i> Username</label>
+                    <input type="text" name="" id="" class="form-control" formControlName="username">
+                    <!-- error message -->
+                    <div *ngIf="(username.dirty || username.touched) && username.invalid">
+                        <p class="text-danger alert alert-danger mt-3">Username is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="username.valid">
+                        <p class="text-success alert alert-success mt-3">Username is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label"><i class="fa-solid fa-lock"></i> Password</label>
+                    <input type="password" name="" id="" class="form-control" formControlName="password">
+                     <!-- error message -->
+                     <div *ngIf="(password.dirty || password.touched) && password.invalid">
+                        <p class="text-danger alert alert-danger mt-3">Password is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="password.valid">
+                        <p class="text-success alert alert-success mt-3">Password is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- button -->
+                <button class="btn btn-info d-block mx-auto mt-3" type="sumbit">Login</button>
+                <!-- signup for new user -->
+                <p class="new user mt-3">
+                    New to Cinemata? Not registered ? 
+                    Please <button class="btn btn-primary rounded-pill" (click)="goToSignUp()">Sign Up</button> here
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

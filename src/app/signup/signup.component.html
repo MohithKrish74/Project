@@ -1,0 +1,76 @@
+<div class="container mt-5">
+    <h4 class="text-center mb-2">SignUp Form</h4>
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 mx-auto">
+            <form [formGroup]="usersignupForm" (ngSubmit)="onSubmit()" class="bg-light shadow px-5 py-5">
+                <!-- username -->
+                <div class="form-group mt-3">
+                    <label for="username" class="form-label"><i class="fa-solid fa-user"></i> Username</label>
+                    <input type="text" name="username" id="username" class="form-control" formControlName="username">
+                    <!-- error message -->
+                    <div *ngIf="(username.dirty || username.touched) && username.invalid">
+                        <p class="text-danger alert alert-danger mt-3">Username is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="username.valid">
+                        <p class="text-success alert alert-success mt-3">Username is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- password -->
+                <div class="form-group mt-3">
+                    <label for="password" class="form-label"><i class="fa-solid fa-lock"></i> Password</label>
+                    <input type="password" name="password" id="password" class="form-control" formControlName="password">
+                    <!-- error message -->
+                    <div *ngIf="(password.dirty || password.touched) && password.invalid">
+                        <p class="text-danger alert alert-danger mt-3">Password is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="password.valid">
+                        <p class="text-success alert alert-success mt-3">Password is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="form-group mt-3">
+                    <label for="email" class="form-label"><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input type="email" name="email" id="email" class="form-control" formControlName="email">
+                    <!-- error message -->
+                    <div *ngIf="(email.dirty || email.touched) && email.invalid">
+                        <p class="text-danger alert alert-danger mt-3">Email is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="email.valid">
+                        <p class="text-success alert alert-success mt-3">Email is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- city -->
+                <div class="form-group mt-3">
+                    <label for="city" class="form-label"><i class="fa-solid fa-city"></i> City</label>
+                    <input type="text" name="city" id="city" class="form-control" formControlName="city">
+                    <!-- error message -->
+                    <div *ngIf="(city.dirty || city.touched) && city.invalid">
+                        <p class="text-danger alert alert-danger mt-3">City is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="city.valid">
+                        <p class="text-success alert alert-success mt-3">City is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- age -->
+                <div class="form-group mt-3">
+                    <label for="age" class="form-label"><i class="fa-solid fa-image-portrait"></i> Age</label>
+                    <input type="number" name="age" id="age" class="form-control" formControlName="age">
+                    <!-- error message -->
+                    <div *ngIf="(age.dirty || age.touched) && age.invalid">
+                        <p class="text-danger alert alert-danger mt-3">Age is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="age.valid">
+                        <p class="text-success alert alert-success mt-3">Age is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- button -->
+                <button class="btn btn-info d-block mx-auto mt-3" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
