@@ -12,6 +12,8 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorizationService } from './authorization.service';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { AuthorizationService } from './authorization.service';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ModalModule.forRoot(),
+    CarouselModule.forRoot(),
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,

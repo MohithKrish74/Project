@@ -12,4 +12,20 @@ html{
     font-family: 'Roboto', sans-serif;
     font-family: 'Roboto Serif', sans-serif;
     font-family: 'Roboto Slab', serif;
+   
 }
+
+body{
+    /* background-color: #242333; */
+    color: white;
+    background-color: #1f1f38;
+}
+
+/* #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1000;
+  } */

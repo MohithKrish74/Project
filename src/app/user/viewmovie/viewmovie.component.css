@@ -1,3 +1,13 @@
+img:hover{
+    cursor: pointer;
+}
+
 .card{
     border: none;
+    background-color: #2c2c6c;
 }
+
+h6{
+    color:white;
+}
+

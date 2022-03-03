@@ -2,7 +2,7 @@
     <h2 class="text-center mb-2">Login User</h2>
     <div class="row mt-3">
         <div class="col-12 col-sm-8 col-md-6 mx-auto">
-            <form class="shadow px-5 py-5" [formGroup]="userTypeForm" (ngSubmit)="onSubmit()">
+            <form class="shadow px-5 py-5" [formGroup]="userTypeForm" #formRef="ngForm" (ngSubmit)="formRef.form.valid && onSubmit(template)">
                 <!-- user type -->
                 <div class="form-group mt-3">
                     <label for="" class="form-label d-block"><i class="fa-solid fa-user-group"></i> User Type</label>
@@ -16,8 +16,8 @@
                     <label for="" class="form-label"><i class="fa-solid fa-user"></i> Username</label>
                     <input type="text" name="" id="" class="form-control" formControlName="username">
                     <!-- error message -->
-                    <div *ngIf="(username.dirty || username.touched) && username.invalid">
-                        <p class="text-danger alert alert-danger mt-3">Username is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    <div *ngIf="formRef.submitted || (username.dirty || username.touched) && username.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="username.errors?.['required']">Username is required <i class="fa-solid fa-circle-xmark"></i></p>
                     </div>
                     <!-- success message -->
                     <div *ngIf="username.valid">
@@ -29,8 +29,8 @@
                     <label for="" class="form-label"><i class="fa-solid fa-lock"></i> Password</label>
                     <input type="password" name="" id="" class="form-control" formControlName="password">
                      <!-- error message -->
-                     <div *ngIf="(password.dirty || password.touched) && password.invalid">
-                        <p class="text-danger alert alert-danger mt-3">Password is required <i class="fa-solid fa-circle-xmark"></i></p>
+                     <div *ngIf="formRef.submitted || (password.dirty || password.touched) && password.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="password.errors?.['required']">Password is required <i class="fa-solid fa-circle-xmark"></i></p>
                     </div>
                     <!-- success message -->
                     <div *ngIf="password.valid">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <!-- button -->
-                <button class="btn btn-info d-block mx-auto mt-3" type="sumbit">Login</button>
+                <button class="btn d-block mx-auto mt-3" type="sumbit" id="loginButton" (click)="openModal(template)">Login</button>
                 <!-- signup for new user -->
                 <p class="new user mt-3">
                     New to Cinemata? Not registered ? 
@@ -48,3 +48,24 @@
         </div>
     </div>
 </div>
+
+<!-- modal -->
+<ng-template #template>
+    <div class="modal-header text-dark">
+      <h4 class="modal-title pull-left">Login</h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-dark">
+        <div *ngIf="error==true && errorMessage=='Invalid Username'">
+            <i class="fa-solid fa-circle-exclamation text-center text-danger"></i>
+            <h6>Invalid Username.Please check and retry</h6>
+        </div>
+      <h6 *ngIf="error==true && errorMessage=='Invalid Password'">Invalid Password.Please check and retry</h6>
+      <h6 *ngIf="error==false">Login was Successful</h6>
+    </div>
+    <div class="modal-footer text-dark">
+        <button type="button" class="btn btn-primary" (click)="confirm()">Ok</button>
+    </div>
+</ng-template>

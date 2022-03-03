@@ -15,6 +15,7 @@ const dbConnectionUrl = process.env.DB_CONNECTION_URL
 //import apis
 const userApi = require("./APIS/userApi")
 const adminApi = require("./APIS/adminApi")
+const seatApi = require("./APIS/seatApi")
 
 //connect mongoose
 mongoose.connect(dbConnectionUrl)
@@ -24,6 +25,7 @@ mongoose.connect(dbConnectionUrl)
 //execute api based on match
 app.use("/user",userApi)
 app.use("/admin",adminApi)
+app.use("/seat",seatApi)
 
 //default path loading
 app.get("*",(request,response,)=>{

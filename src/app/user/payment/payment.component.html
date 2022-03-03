@@ -1,0 +1,113 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col col-12 col-sm-8 col-md-6 mx-auto">
+            <form [formGroup]="fillTicketForm" (ngSubmit)="onSubmit()">
+                 <!-- name -->
+            <div class="form-group mt-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name" class="form-control" formControlName="name">
+            </div>
+            <!-- number of tickets -->
+            <div class="form-group mt-3">
+                <label for="numberOfTickets" class="form-label">Number of Tickets</label>
+                <input type="number" name="numberOfTickets" id="numberOfTickets" #ticketRef class="form-control" formControlName="numberOfTickets">
+                <button class="btn btn-info d-block mx-auto mt-2" (click)="updateTicketCount(ticketRef.value)" type="button">Go</button>
+            </div>
+            <!-- show type -->
+            <div class="form-group mt-3">
+                <label for="" class="form-label d-block">Seat Type</label>
+                <!-- normal -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showType" value="Normal" id="Normal" class="form-check-input" (change)="seatSelection($event)" formControlName="showType">
+                    <label for="Normal" class="form-check-label">Normal</label>
+                </div>
+                <!-- executive -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showType" value="Executive" id="Executive" class="form-check-input" (change)="seatSelection($event)" formControlName="showType">
+                    <label for="Executive" class="form-check-label">Executive</label>
+                </div>
+                <!-- premium -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showType" value="Premium" id="Premium" class="form-check-input" (change)="seatSelection($event)" formControlName="showType">
+                    <label for="Premium" class="form-check-label">Premium</label>
+                </div>
+                <!-- VIP -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showType" value="VIP" id="VIP" class="form-check-input" (change)="seatSelection($event)" formControlName="showType">
+                    <label for="VIP" class="form-check-label">VIP</label>
+                </div>
+            </div>
+            <!-- show timing -->
+            <div class="form-group mt-3">
+                <!-- 9.30 -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showTiming" value="9.30" id="" class="form-check-input" formControlName="showTiming">
+                    <label for="" class="form-check-label">9.30 AM</label>
+                </div>
+                <!-- 11.30 -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showTiming" value="11.30" id="" class="form-check-input" formControlName="showTiming">
+                    <label for="" class="form-check-label">11.30 AM</label>
+                </div>
+                <!-- 1.30 -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showTiming" value="1.30" id="" class="form-check-input" formControlName="showTiming">
+                    <label for="" class="form-check-label">1.30 AM</label>
+                </div>
+                <!-- 3.30 -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showTiming" value="3.30" id="" class="form-check-input" formControlName="showTiming">
+                    <label for="" class="form-check-label">3.30 AM</label>
+                </div>
+                <!-- 5.30 -->
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="showTiming" value="5.30" id="showTiming" class="form-check-input" formControlName="showTiming">
+                    <label for="" class="form-check-label">5.30 AM</label>
+                </div>
+            </div>
+            <!-- seat selection -->
+            <!-- <div class="parent mt-3"> -->
+                <!-- <div class="A set d-flex justify-content-around mt-3">
+                    <div class="A">
+                        <h4>A</h4>
+                    </div>
+                    <div class="A seats">
+                        <button class="btn btn-light me-2"  (click)="seatSelected('A1')"><h6>1</h6></button>
+                        <button class="btn btn-light me-2"  (click)="seatSelected('A2')"><h6>2</h6></button>
+                        <button class="btn btn-light me-2" (click)="seatSelected('A3')"><h6>3</h6></button>
+                        <button class="btn btn-light me-2" (click)="seatSelected('A4')"><h6>4</h6></button>
+                        <button class="btn btn-light me-2" (click)="seatSelected('A5')"><h6>5</h6></button>
+                    </div>
+                </div>
+
+                <div class="B set d-flex justify-content-around mt-3">
+                    <div class="A">
+                        <h4>B</h4>
+                    </div>
+                    <div class="B seats">
+                        <button class="btn btn-light me-2" (click)="seatSelected('B1')"><h6>1</h6></button>
+                        <button class="btn btn-light me-2" (click)="seatSelected('B2')"><h6>2</h6></button>
+                        <button class="btn btn-light me-2" (click)="seatSelected('B3')"><h6>3</h6></button>
+                        <button class="btn btn-light me-2" (click)="seatSelected('B4')"><h6>4</h6></button>
+                        <button class="btn btn-light me-2" (click)="seatSelected('B5')"><h6>5</h6></button>
+                    </div>
+                </div> -->
+
+
+                <!-- A rows -->
+                <div class="A set d-flex justify-content-around mt-3">
+                    <div class="A">
+                        <h4>A</h4>
+                    </div>
+                    <div class="A seats" *ngFor="let seat of seatsInfo">
+                        <button class="btn btn-light me-2" (click)="seatSelected(seat.seatNumber)" [ngStyle]="seat.isSeatSelected==true?{'background-color':'#00ED64','border':'1px solid #00ED64'}:{'background-color':'white'}">{{seat.seatNumber}}</button>
+                    </div>
+                </div>
+                <!-- button -->
+                <button class="btn btn-danger d-block mx-auto mt-3" type="submit">Pay {{payAmount}}</button>
+            </form>
+           
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

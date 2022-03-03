@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 mx-auto">
+            <form [formGroup]="addSeatForm" #formRef="ngForm" (ngSubmit)="onSubmit()">
+                <!-- seat type -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label d-block">Seat Type</label>
+                    <!-- normal -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="showType" value="Normal" id="Normal" class="form-check-input" formControlName="seatType">
+                        <label for="Normal" class="form-check-label">Normal</label>
+                    </div>
+                    <!-- executive -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="showType" value="Executive" id="Executive" class="form-check-input" formControlName="seatType">
+                        <label for="Executive" class="form-check-label">Executive</label>
+                    </div>
+                    <!-- premium -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="showType" value="Premium" id="Premium" class="form-check-input" formControlName="seatType">
+                        <label for="Premium" class="form-check-label">Premium</label>
+                    </div>
+                    <!-- VIP -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="showType" value="VIP" id="VIP" class="form-check-input" formControlName="seatType">
+                        <label for="VIP" class="form-check-label">VIP</label>
+                    </div>
+                </div>
+                <!-- seat number -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Seat Number</label>
+                    <input type="text" name="" id="" class="form-control" formControlName="seatNumber">
+                     <!-- error message -->
+                     <div *ngIf="formRef.submitted || (seatNumber.dirty || seatNumber.touched) && seatNumber.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="seatNumber.errors?.['required']">Seat Number is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="seatNumber.valid">
+                        <p class="text-success alert alert-success mt-3">Seat Number is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- button -->
+                <button class="btn btn-info d-block mx-auto mt-3" type="submit">Add Seat</button>
+            </form>
+        </div>
+    </div>
+</div>

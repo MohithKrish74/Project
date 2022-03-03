@@ -2,9 +2,16 @@
   <!-- navbar -->
   <app-navbar></app-navbar>
   <!-- router outlet -->
-  <div class="container main">
+  <div class="main">
     <router-outlet></router-outlet>
   </div>
+  <!-- smartnavbar -->
+  <nav [hidden]=true>
+    <a href="" routerLink="home" routerLinkActive="active"><i class="fa-solid fa-house"></i></a>
+    <a href="" routerLink="login" routerLinkActive="active"><i class="fa-solid fa-right-to-bracket"></i></a>
+    <a href="" routerLink="signup" routerLinkActive="active"><i class="fa-solid fa-right-from-bracket"></i></a>
+    <a href="" routerLink="contactus" routerLinkActive="active"><i class="fa-solid fa-address-book"></i></a>
+  </nav>
 </div>
 <!-- footer -->
 <div class="footer">

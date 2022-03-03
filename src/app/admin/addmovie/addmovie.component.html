@@ -1,31 +1,95 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-12 col-sm-8 col-md-6 mx-auto">
-            <form [formGroup]="addmovieForm" (ngSubmit)="onSubmit()" class="bg-light shadow px-5 py-5">
+            <form [formGroup]="addmovieForm" #formRef="ngForm" (ngSubmit)="formRef.form.valid && onSubmit()" class="shadow px-5 py-5">
                 <!-- movie name -->
                 <div class="form-group mt-3">
                     <label for="" class="form-label">Name of Movie</label>
                     <input type="text" name="" id="" class="form-control" formControlName="movieName">
+                     <!-- error message -->
+                     <div *ngIf="formRef.submitted || (movieName.dirty || movieName.touched) && movieName.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="movieName.errors?.['required']">Movie Name is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="movieName.valid">
+                        <p class="text-success alert alert-success mt-3">Movie Name is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
                 </div>
                 <!-- genre -->
                 <div class="form-group mt-3">
                     <label for="" class="form-label">Genre of Movie</label>
                     <input type="text" name="" id="" class="form-control" formControlName="movieGenre">
+                     <!-- error message -->
+                     <div *ngIf="formRef.submitted || (movieGenre.dirty || movieGenre.touched) && movieGenre.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="movieGenre.errors?.['required']">Movie Genre is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="movieGenre.valid">
+                        <p class="text-success alert alert-success mt-3">Movie Genre is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
                 </div>
                 <!-- rating -->
                 <div class="form-group mt-3">
                     <label for="" class="form-label">Rating of Movie</label>
                     <input type="text" name="" id="" class="form-control" formControlName="movieRating">
+                     <!-- error message -->
+                     <div *ngIf="formRef.submitted || (movieRating.dirty || movieRating.touched) && movieRating.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="movieRating.errors?.['required']">Movie Genre is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="movieRating.valid">
+                        <p class="text-success alert alert-success mt-3">Movie Genre is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
                 </div>
                 <!-- duration -->
                 <div class="form-group mt-3">
                     <label for="" class="form-label">Duration of Movie</label>
                     <input type="text" name="" id="" class="form-control" formControlName="movieDuration">
+                     <!-- error message -->
+                     <div *ngIf="formRef.submitted || (movieDuration.dirty || movieDuration.touched) && movieDuration.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="movieDuration.errors?.['required']">Movie Genre is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="movieDuration.valid">
+                        <p class="text-success alert alert-success mt-3">Movie Genre is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
+                </div>
+                <!-- language -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label d-block">Movie Language</label>
+                    <!-- English -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="movieLanguage" value="English" id="English" class="form-check-input" formControlName="movieLanguage">
+                        <label for="English" class="form-check-label">English</label>
+                    </div>
+                    <!-- Tamil -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="movieLanguage" value="Tamil" id="Tamil" class="form-check-input" formControlName="movieLanguage">
+                        <label for="Tamil" class="form-check-label">Tamil</label>
+                    </div>
+                    <!-- Hindi -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="movieLanguage" value="Hindi" id="Hindi" class="form-check-input" formControlName="movieLanguage">
+                        <label for="Hindi" class="form-check-label">Hindi</label>
+                    </div>
+                    <!-- Telegu -->
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="movieLanguage" value="Telegu" id="Telegu" class="form-check-input" formControlName="movieLanguage">
+                        <label for="Telegu" class="form-check-label">Telegu</label>
+                    </div>
                 </div>
                 <!-- year -->
                 <div class="form-group mt-3">
                     <label for="" class="form-label">Year of Movie Release</label>
                     <input type="number" name="" id="" class="form-control" formControlName="movieYear">
+                     <!-- error message -->
+                     <div *ngIf="formRef.submitted || (movieYear.dirty || movieYear.touched) && movieYear.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="movieYear.errors?.['required']">Movie Genre is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="movieYear.valid">
+                        <p class="text-success alert alert-success mt-3">Movie Genre is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
                 </div>
                 <!-- image -->
                 <div class="form-group mt-3">
@@ -36,6 +100,14 @@
                 <div class="form-group mt-3">
                    <label for="" class="form-label">Description of Movie</label>
                    <textarea name="" id="" cols="5" rows="5" class="form-control" formControlName="movieDescription"></textarea>
+                    <!-- error message -->
+                    <div *ngIf="formRef.submitted || (movieDescription.dirty || movieDescription.touched) && movieDescription.invalid">
+                        <p class="text-danger alert alert-danger mt-3" *ngIf="movieDescription.errors?.['required']">Movie Genre is required <i class="fa-solid fa-circle-xmark"></i></p>
+                    </div>
+                    <!-- success message -->
+                    <div *ngIf="movieDescription.valid">
+                        <p class="text-success alert alert-success mt-3">Movie Genre is valid <i class="fa-solid fa-circle-check"></i></p>
+                    </div>
                 </div>
                 <!-- button -->
                 <button class="btn btn-success d-block mt-3 mx-auto" type="submit">Add Movie</button>

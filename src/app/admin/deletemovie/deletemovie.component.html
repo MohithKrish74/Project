@@ -1,0 +1,13 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 mx-auto">
+                <!-- movie name -->
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Enter the Movie to Remove</label>
+                    <input type="text" name="" id="" [value]="this.userServiceObj.deleteMovieBehaviourSubject.getValue()" #movie class="form-control">
+                </div>
+                <!-- button -->
+                <button class="btn btn-danger d-block mx-auto mt-3" (click)="confirmdelete(movie.value)">Delete</button>
+        </div>
+    </div>
+</div>

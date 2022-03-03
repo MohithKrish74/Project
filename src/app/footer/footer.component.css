@@ -1,10 +1,29 @@
-img{
-    width:40%;
-    display: block;
-    margin-top: 5px;
-}
 .icons i{
     padding:5px 5px;
     border-radius: 50%;
-    border:2px solid grey;
+    border:2px solid black;
+}
+
+footer{
+    background-color: #4db5ff;
+    color: black;
+}
+
+h6,p{
+    font-weight: bolder;
+}
+
+@media (min-width:300px) and (max-width:480px){
+    .part-1,.part-2,.part-3,.part-4{
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (min-width:481px){
+    .section-1{
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
 }

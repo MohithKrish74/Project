@@ -51,14 +51,35 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({storage:storage})
 //provide route
+
+//Movie section
+
 //getting movies from admin
 adminApp.get("/getmovies",expressAsyncHandler(async(request,response)=>{
     //get movies by admin
     const adminInfo = await Movie.findOne({username:process.env.ADMIN})
     //get movie list
     const movieList = adminInfo.movieList
+    //get movie with status as false
+    const movieAvailable = movieList.filter(movieObj=>movieObj.status==false)
     //send info
-    response.send({message:"Movie List",payload:movieList})
+    response.send({message:"Movie List",payload:movieAvailable})
+}))
+
+
+//get movie using moviename
+adminApp.get("/getmovie/:movieName",expressAsyncHandler(async(request,response)=>{
+    //get movie name from user
+    let movieName = request.params.movieName
+    //search for admin in DB
+    let adminInfo = await Movie.findOne({username:process.env.ADMIN})
+    //get all movies
+    let movies = adminInfo.movieList
+    //get movie of user choice
+    let movie = movies.find(movieObj=>movieObj.movieName==movieName)
+    //send info
+    response.send({message:"Movie Found",payload:movie})
+
 }))
 
 //add movies
@@ -78,15 +99,39 @@ adminApp.post("/addmovie",upload.single("photo"),expressAsyncHandler(async(reque
     else{
         //get info
         let updatedMovies = adminInfo
+        //add img
+        movieAddedByAdmin.movieList[0].img = imgCdn
+       // console.log("list",movieList)
         //add movies 
         updatedMovies.movieList.push(movieAddedByAdmin.movieList[0])
         //update movies in admin section
         await Movie.updateOne({username:process.env.ADMIN},updatedMovies)
         response.send({message:"Movie Added"})
     }
-        
-
 }))
+
+//remove movies
+adminApp.put("/removemovie",expressAsyncHandler(async(request,response)=>{
+    //get movie name
+    let movieNameToRemove = request.body.movieName
+    //check for existence
+    let movieDetailsInDb = await Movie.findOne({username:process.env.ADMIN})
+    //if not null
+    if(movieDetailsInDb!==null){
+        //get movies available
+        let moviesAvailable = movieDetailsInDb.movieList
+        //find movie of admin selected
+        let adminSelectedMovie = moviesAvailable.find(movieObj=>movieObj.movieName==movieNameToRemove)
+        //update the status
+        adminSelectedMovie.status=true
+        //update
+        await  Movie.findOneAndUpdate({username:process.env.ADMIN},{$set:{movieList:moviesAvailable}})
+        response.send({message:"Movie Deleted"})
+    }
+}))
+
+
+//Admin section
 
 //create admin
 adminApp.post("/createadmin",expressAsyncHandler(async(request,response)=>{

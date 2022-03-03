@@ -12,3 +12,59 @@
 .content .main{
     margin-bottom: 5rem;
 }
+
+nav{
+    background: rgba(0,0,0,0.3);
+    width:max-content;
+    display: block;
+    padding: 15px 20px;
+    z-index: 2;
+    position: fixed;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    display: flex;
+    gap:18px;
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    animation-name: comeFromBottom;
+    animation-duration: 5s;
+}
+
+nav a{
+    background:transparent;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    color:rgba(255,255,255,0.6);
+    font-size:14px;
+}
+
+nav a:hover{
+    background:rgba(0,0,0,0.3);
+}
+
+nav a.active{
+    background: #1f1f38;
+    color:white;
+}
+
+@keyframes comeFromBottom {
+    0%{
+       
+        transform: translate(-50%,50%)
+    }
+     0%{
+       
+        transform: translate(-50%,50%)
+    }
+
+    50%{
+        transform: translate(-50%,25%)
+    }
+
+    100%{
+        transform: translate(-50%,0%)
+    }
+   
+}

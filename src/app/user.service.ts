@@ -21,6 +21,12 @@ export class UserService {
   //logged user observable
   dataOfLoggedUserObservable = this.dataOfLoggedUserBehaviourSubject.asObservable()
 
+  //movie info behaviour subject
+  movieInfoBehaviourSubject = new BehaviorSubject(null)
+
+  //movie deletion behaviour subject
+  deleteMovieBehaviourSubject = new BehaviorSubject('')
+
   //create user
   createUser(userObj):Observable<any>{
     return this.httpClientObj.post<any>("http://localhost:5000/user/createuser",userObj)
@@ -52,6 +58,34 @@ export class UserService {
   //add movies
   addMovies(movieObj):Observable<any>{
     return this.httpClientObj.post<any>("http://localhost:5000/admin/addmovie",movieObj)
+  }
+
+  //get movie info using movie name
+  getMovieByMovieName(movieName):Observable<any>{
+    return this.httpClientObj.get<any>(`http://localhost:5000/admin/getmovie/${movieName}`)
+  }
+
+  //delete movie using movie name
+  deleteMovies(movieName){
+    return this.httpClientObj.put("http://localhost:5000/admin/removemovie",movieName)
+  }
+
+  //create seat
+  createSeat(seatObj):Observable<any>{
+    return this.httpClientObj.post("http://localhost:5000/seat/createseat",seatObj)
+  }
+  //update seat
+  updateSeat(seatObj):Observable<any>{
+    return this.httpClientObj.put("http://localhost:5000/seat/updateseat",seatObj)
+  }
+  //get seat using seat number
+  getSeatUsingSeatNumber(seatNumber):Observable<any>{
+    return this.httpClientObj.get(`http://localhost:5000/seat/getseat/${seatNumber}`)
+  }
+
+  //get all seats
+  getAllSeatsInTheatre():Observable<any>{
+    return this.httpClientObj.get("http://localhost:5000/seat/getallseats")
   }
 
 }

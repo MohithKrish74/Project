@@ -1,0 +1,563 @@
+<div class="container mt-5">
+    <div class="card shadow h-100">
+        <div class="row">
+            <div class="col">
+                <img [src]="movieDetails.img" class="img-fluid w-100" *ngIf="movieDetails.hasOwnProperty('img')" alt="">
+                <img src="https://images.pexels.com/photos/534590/pexels-photo-534590.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    class="img-fluid w-100" *ngIf="!movieDetails.hasOwnProperty('img')" alt="">
+            </div>
+            <div class="col py-2">
+                <h6><strong>Movie Name</strong> : {{movieDetails.movieName}}</h6>
+                <h6><strong>Movie Genre</strong> : {{movieDetails.movieGenre}}</h6>
+                <h6><strong>Movie Rating</strong> : {{movieDetails.movieRating}}</h6>
+                <h6><strong>Movie Duration</strong> : {{movieDetails.movieDuration}}</h6>
+                <h6><strong>Movie Year</strong> : {{movieDetails.movieYear}}</h6>
+                <h6><strong>Movie Description</strong> : {{movieDetails.movieDescription}}</h6>
+                <button class="btn btn-danger d-block mx-auto mt-3" (click)="goToPayment()">Book Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- suggestions -->
+<div class="container mt-5">
+    <h4>Our Suggesstions</h4>
+    <!-- english -->
+    <carousel [noPause]="false" *ngIf="movieDetails.movieLanguage=='English'">
+        <!-- item 1 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 englishMovie-1">
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/12_nov/480x480_Justin-Bieber._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Justin Bieber</h6>
+                            <h6 class="text-center">Documentary</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480_D_TWWMD._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Those Who wish me Dead</h6>
+                            <h6 class="text-center">Suspense</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480_D_MK._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Mortal Kombat</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480_D_Cind._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Cindrella</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480_desktop_voyeurs._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">The Voyeurs</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480_desktop_EITAJ._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Everybody Talking About Jamie</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+        <!-- item 2 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 englishMovie-2">
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Judas._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Judas And The Black Messiah</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480-Tomorrow_war._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">The Tomorrow War</h6>
+                            <h6 class="text-center">Adventure</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Wonder-Woman-1984._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Wonder Woman 1984</h6>
+                            <h6 class="text-center">Science Fiction</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Minari._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Minari</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Tom-Clancys-Without-Remorse._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Tom Clancy's Without Remorse</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Tenet._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Tenet</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+    </carousel>
+    <!-- tamil -->
+    <carousel *ngIf="movieDetails.movieLanguage=='Tamil'">
+        <!-- item 1 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 tamilMovie-1">
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/12_nov/480x480_Udanpirappe._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Udanpirappe</h6>
+                            <h6 class="text-center">International</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480_D_RARA._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Raame Aandalum Raavane Aandalum</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Sarpatta-tamil._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Sarpatta Parambarai</h6>
+                            <h6 class="text-center">Sports</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Karnan._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Karnan</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Master-Tamil._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Master</h6>
+                            <h6 class="text-center">International</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow  h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Maara._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Maara</h6>
+                            <h6 class="text-center">Romance</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+        <!-- item - 2 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 tamilMovie-2">
+                <div class="col">
+                    <div class="card shadow  h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Anbirkiniyal._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Anbirkiniyal</h6>
+                            <h6 class="text-center">Suspense</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow  h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Soorarai-Pottru._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Soorarai Pottru</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Darbar._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Darbar</h6>
+                            <h6 class="text-center">International</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Pattas._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Pattas</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Penguin._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Penguin</h6>
+                            <h6 class="text-center">Suspense</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/2.0._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">2.0</h6>
+                            <h6 class="text-center">Science Fiction</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+    </carousel>
+    <!-- hindi -->
+    <carousel [noPause]="false" *ngIf="movieDetails.movieLanguage=='Hindi'">
+        <!-- item 1 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 hindiMovie-1">
+                <div class="col">
+                    <div class="card shadow  h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/480x480_D_MD._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Mumbai Diaries</h6>
+                            <h6 class="text-center">Suspense</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow  h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Shershaah_480x480._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Shershaah</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/HD_480x480._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Hostel Daze</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/The-Family-ManS2._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">The Family Man</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Sandeep-Aur-Pinky-Faraar._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Sandeep Auyr Pinky Faraar</h6>
+                            <h6 class="text-center">Suspense</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Mumbai_Saga._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Mumbai Saga</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+        <!-- item - 2 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 hindiMovie-2">
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Sania._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Saina</h6>
+                            <h6 class="text-center">Sports</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Udaan._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Udaan</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Mirzapur_Season-1._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Mirzapur</h6>
+                            <h6 class="text-center">Crime</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Shakuntala-Devi._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Shakuntla Devi</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Good-Newwz._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Good Newwz</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Gulabo-Sitabo._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Gulabo Sitabo</h6>
+                            <h6 class="text-center">International</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+    </carousel>
+    <!-- telegu -->
+    <carousel [noPause]="false" *ngIf="movieDetails.movieLanguage=='Telegu'">
+        <!-- item - 1 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 teleguMovie-1">
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/SingleTitle/Drushyam_2/Drushyam2_480x480._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Drushyam 2</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Narappa_480x480._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Narappa</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Mosagallu._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Mosagallu</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Vakeel-Saab._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Vakeel Saab</h6>
+                            <h6 class="text-center">Drama</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Ek-Mini-Katha._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Ek Mini Katha</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Jathi-Ratnalu._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Jathi Ratnalu</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+        <!-- item - 2 -->
+        <slide>
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-6 teleguMovie-2">
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/V._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">V</h6>
+                            <h6 class="text-center">International</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow  h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Master-Telugu._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Master</h6>
+                            <h6 class="text-center">International</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Shaadi-Mubarak._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Shaadi Mubarak</h6>
+                            <h6 class="text-center">Comedy</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Kaptadhaari._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Kaptadhaari</h6>
+                            <h6 class="text-center">Suspense</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Nishabdham-Telugu._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Nishabdham</h6>
+                            <h6 class="text-center">Suspense</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow h-100">
+                        <img src="https://images-na.ssl-images-amazon.com/images/G/31/AmazonVideo/2021/X-site/Slash_carousel/Desktop_480x480_PPD/Sarileru-Neekevvaru._SS400_QL85_.jpg"
+                            alt="">
+                        <div class="card-body">
+                            <h6 class="text-center">Sarileru Neekevvaru</h6>
+                            <h6 class="text-center">Action</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slide>
+    </carousel>
+
+</div>
